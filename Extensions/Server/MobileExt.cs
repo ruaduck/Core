@@ -465,26 +465,26 @@ namespace Server
 			}
 		}
 
-		private static readonly MethodInfo _SleepImpl = //
-			typeof(Mobile).GetMethod("Sleep", new[] {typeof(TimeSpan)}) ??
-			typeof(Mobile).GetMethod("DoSleep", new[] {typeof(TimeSpan)});
+		//private static readonly MethodInfo _SleepImpl = //
+			//typeof(Mobile).GetMethod("Sleep", new[] {typeof(TimeSpan)}) ??
+			//typeof(Mobile).GetMethod("DoSleep", new[] {typeof(TimeSpan)});
 
-		public static void TrySleep(this Mobile m, TimeSpan duration, TimerStateCallback<Mobile> callback = null)
-		{
-			if (_SleepImpl != null)
-			{
-				VitaNexCore.TryCatch(
-					() =>
-					{
-						_SleepImpl.Invoke(m, new object[] {duration});
-
-						if (callback != null)
-						{
-							Timer.DelayCall(duration, callback, m);
-						}
-					});
-			}
-		}
+//		public static void TrySleep(this Mobile m, TimeSpan duration, TimerStateCallback<Mobile> callback = null)
+//		{
+//			if (_SleepImpl != null)
+//			{
+//				VitaNexCore.TryCatch(
+//					() =>
+//					{
+//						_SleepImpl.Invoke(m, new object[] {duration});
+//
+//						if (callback != null)
+//						{
+//							Timer.DelayCall(duration, callback, m);
+//						}
+//					});
+//			}
+//		}
 
 		public static void SendNotification(
 			this Mobile m,
